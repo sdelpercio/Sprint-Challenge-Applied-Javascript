@@ -19,7 +19,10 @@ function Header() {
     date.classList.add('date');
     temp.classList.add('temp');
 
-    date.textContent = 'MARCH 28, 2019';
+    var today = new Date();
+    var datetime = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+
+    date.textContent = datetime;
     h1.textContent = 'Lambda Times';
     temp.textContent = '98°';
 
