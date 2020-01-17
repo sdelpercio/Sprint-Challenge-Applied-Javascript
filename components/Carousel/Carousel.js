@@ -17,3 +17,46 @@
     <div class="right-button"> > </div>
   </div>
 */
+
+function createCarousel() {
+  const container = document.createElement('div'),
+        leftButton = document.createElement('div'),
+        imgOne = document.createElement('img'),
+        imgTwo = document.createElement('img'),
+        imgThree = document.createElement('img'),
+        imgFour = document.createElement('img'),
+        rightButton = document.createElement('div')
+
+  container.classList.add('carousel');
+  leftButton.classList.add('left-button');
+  rightButton.classList.add('right-button');
+  // imgOne.classList.add('img--current');
+  
+  
+  leftButton.textContent = '<';
+  rightButton.textContent = '>';
+  imgOne.src = './assets/carousel/mountains.jpeg';
+  imgTwo.src = './assets/carousel/computer.jpeg';
+  imgThree.src = './assets/carousel/trees.jpeg';
+  imgFour.src = './assets/carousel/turntable.jpeg';
+
+  container.append(leftButton, imgOne, imgTwo, imgThree, imgFour, rightButton);
+
+  const carouselImages = document.querySelectorAll('.carousel img');
+  let counter = 1;
+  const size = 1200;
+
+  leftButton.addEventListener('click', (event) => {
+    container.style.transform = 'translateX(' + (-size * counter) + 'px)';
+  });
+
+  rightButton.addEventListener('click', (event) => {
+    container.style.transform = 'translateX(' + (size * counter) + 'px)';
+  });
+
+  return container;
+}
+
+const caro = document.querySelector('.carousel-container');
+console.log(caro);
+caro.append(createCarousel());
